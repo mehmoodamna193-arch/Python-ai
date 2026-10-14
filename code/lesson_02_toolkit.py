@@ -1,0 +1,1 @@
+print("uv 0.13.0 \n Python 3.13.16 \n git version 2.55.0.windows.5 \n ollama version is 0.40.4 \n 2.1.291 (Claude Code)")
