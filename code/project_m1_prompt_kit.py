@@ -13,7 +13,10 @@ service_prompt = (
     f"{business_name} in {city}. Write a polite, empathetic reply to an "
     f"unhappy customer who had a bad experience. Apologise sincerely, offer to make it right, and keep "
     f"it under 100 words."
-)
+) 
+#formatting string
+#triple quotes are used for multi-line strings 
+#same as lesson 07 
  
 growth_prompt = (
     f"You are a business growth advisor. Suggest 3 low-cost ways AI can "
@@ -39,3 +42,4 @@ print("\nPROMPT 3 - GROWTH")
 print("-" * 60)
 print(growth_prompt)
  
+## LLM prompts in action
