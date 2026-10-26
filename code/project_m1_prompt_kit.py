@@ -1,3 +1,12 @@
+"""Module 1 project: AI Prompt Kit (upgraded in Lesson 2.1).
+
+Asks for business details, builds three prompts, prints them, and now sends
+Prompt 1 (marketing) straight to a local Ollama model through LangChain,
+so you no longer copy-paste it. Prints the answer, tokens and time.
+"""
+
+from langchain.chat_models import init_chat_model
+
 LINE = "=" * 60
 business_name = input("Business name: ")
 business_type = input("Business type (e.g. bakery): ")
@@ -41,5 +50,24 @@ print(service_prompt)
 print("\nPROMPT 3 - GROWTH")
 print("-" * 60)
 print(growth_prompt)
- 
-## LLM prompts in action
+
+# LLM prompts in action
+# Why create the model after the prompts are printed: if Ollama is not
+# running, you still see all three prompts before any connection error.
+# Why temperature 0.7: captions and hashtags are creative work, so we want
+# some variety, but not the wildness of 1.0+.
+llm = init_chat_model("llama3.2", model_provider="ollama", temperature=0.7)
+
+print("\nAI ANSWER TO PROMPT 1 - MARKETING")
+print("-" * 60)
+print("Thinking... (the first call is slow while the model loads)")
+
+response = llm.invoke([{"role": "user", "content": marketing_prompt}])
+
+# total_duration is in nanoseconds, so divide to get seconds
+seconds = response.response_metadata["total_duration"] / 1_000_000_000
+total_tokens = response.usage_metadata["total_tokens"]
+
+print(response.text)
+print(LINE)
+print(f"{total_tokens} tokens in {seconds:.1f} seconds")
