@@ -42,3 +42,14 @@ Estimate to fill in with the real client: if staff spend about __ minutes a day 
 - `docs/project-m1-part2-design.md`: intents, business rules and the rule test table
 - `docs/project-m1-part2-results.md`: AI test results (to be filled in after running Ollama)
 - `docs/project-m1-part2-run.png`: screenshot of a full session
+
+
+## Project: AI Content Studio
+
+A command-line studio that writes menu descriptions and social media posts for a local business and answers customers using only the owner's real facts.
+
+**Run:** `uv run code/project_m2_content_studio.py`
+
+![Full session with the report](docs/project-m2-cp1-run.png)
+
+**Value:** Writing descriptions for every menu item and a month of posts by hand takes a day; the studio does it in about a minute, and prices come straight from the owner's data so the AI can never invent one. (Edit this line with your own numbers.)
